@@ -206,6 +206,7 @@ let country_list_no_db = [
     { name: 'Yemen', code: 'YE' },
     { name: 'China', code: 'CN' }
 ];
+// console.log(country_list[0]);
 //? Fill data base with 
 // async function fillDataBase() {
 //     await country_list.map(item => {
@@ -232,16 +233,17 @@ const input = document.querySelector('.search__input');
 let country_list;//? Delete it when database is not available
 let num_of_ul_lists = 3;
 async function createCountryList() {
-
+    //? Delete it when database is not available start
     let fet = await fetch('http://localhost:4000/');//* Getting "country_list" from MongoDB cloud
     let res = await fet.json();
-    country_list = res;//? Delete it when database is not available
+    country_list = res;
     country_list.forEach(country => {
         if (country.code == country_code) {
             user_country = country.name
         }
     })
     fetchData(user_country);
+    //?  end
     const num_countries = country_list.length;
     let i = 0;
     let ul_list_id;

@@ -29,14 +29,14 @@ formattedDates = [];
 //! Get users country code
 let country_code = geoplugin_countryCode();
 let user_country;
-
+//? Use this code if database not available start
 // country_list.forEach(country => {
 //     if (country.code == country_code) {
 //         user_country = country.name
 //     }
 // })
 // fetchData(user_country);
-
+//? end
 function fetchData(country) {
     country_name_element.innerHTML = "Loading...";
     cases_list = [], recovered_list = [], deaths_list = [], dates = [], formattedDates = [];

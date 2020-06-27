@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-app.use(express.static('client'));
+// app.use(express.static('client'));
 
 
 
@@ -20,8 +20,9 @@ app.use(express.static('client'));
 async function start() {
     try {
         //? DB connection//////////////////////////////////////////////////////////
+        //*For MongoDB connection(cloud)
         await mongoose.connect(
-            " mongodb+srv://fosfat:12345@cluster0-dlm3x.mongodb.net/MERNDB?retryWrites=true&w=majority", {//For MongoDB connection(cloud)
+            " mongodb+srv://fosfat:12345@cluster0-dlm3x.mongodb.net/MERNDB?retryWrites=true&w=majority", {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true
