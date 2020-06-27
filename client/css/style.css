@@ -1,0 +1,235 @@
+@font-face {
+  font-family: "Gilroy";
+  src: url(../fonts/Gilroy-Regular.woff) format(woff); }
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy", sans-serif; }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  height: 60px;
+  margin: 0 auto;
+  background-color: #f3f2f2; }
+  .header .logo {
+    display: flex;
+    align-items: center;
+    padding-left: 20px; }
+    .header .logo .logo__image {
+      width: 60px; }
+    .header .logo .logo__text {
+      font-weight: bold;
+      color: #6a149b; }
+  .header .nav .nav__list {
+    display: flex; }
+    .header .nav .nav__list .nav__item {
+      list-style: none;
+      padding: 20px; }
+      .header .nav .nav__list .nav__item .nav__link {
+        text-decoration: none;
+        color: #6a149b; }
+
+.main {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto; }
+  .main .stats {
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../img/bg.jpg);
+    background-size: cover; }
+    .main .stats .stats__latest-reports {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 50px;
+      width: 80%;
+      color: #ffffff;
+      margin: 0 auto; }
+      @media screen and (max-width: 768px) {
+        .main .stats .stats__latest-reports {
+          flex-direction: column;
+          align-items: flex-start; } }
+      .main .stats .stats__latest-reports .stats__country,
+      .main .stats .stats__latest-reports .stats__total-cases,
+      .main .stats .stats__latest-reports .stats__recovered,
+      .main .stats .stats__latest-reports .stats__deaths {
+        height: 100px; }
+        .main .stats .stats__latest-reports .stats__country .total-cases__title,
+        .main .stats .stats__latest-reports .stats__country .recovered__title,
+        .main .stats .stats__latest-reports .stats__country .deaths__title,
+        .main .stats .stats__latest-reports .stats__total-cases .total-cases__title,
+        .main .stats .stats__latest-reports .stats__total-cases .recovered__title,
+        .main .stats .stats__latest-reports .stats__total-cases .deaths__title,
+        .main .stats .stats__latest-reports .stats__recovered .total-cases__title,
+        .main .stats .stats__latest-reports .stats__recovered .recovered__title,
+        .main .stats .stats__latest-reports .stats__recovered .deaths__title,
+        .main .stats .stats__latest-reports .stats__deaths .total-cases__title,
+        .main .stats .stats__latest-reports .stats__deaths .recovered__title,
+        .main .stats .stats__latest-reports .stats__deaths .deaths__title {
+          font-size: 1.3em; }
+        .main .stats .stats__latest-reports .stats__country .total-cases__new-value,
+        .main .stats .stats__latest-reports .stats__country .recovered__new-value,
+        .main .stats .stats__latest-reports .stats__country .deaths__new-value,
+        .main .stats .stats__latest-reports .stats__total-cases .total-cases__new-value,
+        .main .stats .stats__latest-reports .stats__total-cases .recovered__new-value,
+        .main .stats .stats__latest-reports .stats__total-cases .deaths__new-value,
+        .main .stats .stats__latest-reports .stats__recovered .total-cases__new-value,
+        .main .stats .stats__latest-reports .stats__recovered .recovered__new-value,
+        .main .stats .stats__latest-reports .stats__recovered .deaths__new-value,
+        .main .stats .stats__latest-reports .stats__deaths .total-cases__new-value,
+        .main .stats .stats__latest-reports .stats__deaths .recovered__new-value,
+        .main .stats .stats__latest-reports .stats__deaths .deaths__new-value {
+          font-size: 1.3em; }
+        .main .stats .stats__latest-reports .stats__country .country__name,
+        .main .stats .stats__latest-reports .stats__total-cases .country__name,
+        .main .stats .stats__latest-reports .stats__recovered .country__name,
+        .main .stats .stats__latest-reports .stats__deaths .country__name {
+          font-size: 2.2em;
+          color: #be64f1;
+          font-weight: bold; }
+        .main .stats .stats__latest-reports .stats__country .country__change,
+        .main .stats .stats__latest-reports .stats__total-cases .country__change,
+        .main .stats .stats__latest-reports .stats__recovered .country__change,
+        .main .stats .stats__latest-reports .stats__deaths .country__change {
+          cursor: pointer; }
+        .main .stats .stats__latest-reports .stats__country .country__search,
+        .main .stats .stats__latest-reports .stats__total-cases .country__search,
+        .main .stats .stats__latest-reports .stats__recovered .country__search,
+        .main .stats .stats__latest-reports .stats__deaths .country__search {
+          position: relative;
+          top: 10px; }
+          .main .stats .stats__latest-reports .stats__country .country__search .search__box,
+          .main .stats .stats__latest-reports .stats__total-cases .country__search .search__box,
+          .main .stats .stats__latest-reports .stats__recovered .country__search .search__box,
+          .main .stats .stats__latest-reports .stats__deaths .country__search .search__box {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 400px;
+            height: 30px;
+            background-color: #111111;
+            z-index: 1; }
+            .main .stats .stats__latest-reports .stats__country .country__search .search__box .search__input,
+            .main .stats .stats__latest-reports .stats__total-cases .country__search .search__box .search__input,
+            .main .stats .stats__latest-reports .stats__recovered .country__search .search__box .search__input,
+            .main .stats .stats__latest-reports .stats__deaths .country__search .search__box .search__input {
+              width: 360px;
+              height: 25px;
+              border: none;
+              background-color: transparent;
+              color: #ffffff;
+              font-size: 1.1em;
+              padding-left: 15px; }
+            .main .stats .stats__latest-reports .stats__country .country__search .search__box .search__close,
+            .main .stats .stats__latest-reports .stats__total-cases .country__search .search__box .search__close,
+            .main .stats .stats__latest-reports .stats__recovered .country__search .search__box .search__close,
+            .main .stats .stats__latest-reports .stats__deaths .country__search .search__box .search__close {
+              width: 20px;
+              padding-right: 5px;
+              cursor: pointer; }
+          .main .stats .stats__latest-reports .stats__country .country__search .search__list,
+          .main .stats .stats__latest-reports .stats__total-cases .country__search .search__list,
+          .main .stats .stats__latest-reports .stats__recovered .country__search .search__list,
+          .main .stats .stats__latest-reports .stats__deaths .country__search .search__list {
+            display: flex;
+            position: absolute;
+            top: 30px;
+            width: 400px;
+            height: 300px;
+            background-color: #111111;
+            opacity: 0.9;
+            overflow-y: scroll; }
+            .main .stats .stats__latest-reports .stats__country .country__search .search__list::-webkit-scrollbar,
+            .main .stats .stats__latest-reports .stats__total-cases .country__search .search__list::-webkit-scrollbar,
+            .main .stats .stats__latest-reports .stats__recovered .country__search .search__list::-webkit-scrollbar,
+            .main .stats .stats__latest-reports .stats__deaths .country__search .search__list::-webkit-scrollbar {
+              box-shadow: inset 0 0 5px grey;
+              border-radius: 10px;
+              background-color: transparent; }
+            .main .stats .stats__latest-reports .stats__country .country__search .search__list::-webkit-scrollbar-thumb,
+            .main .stats .stats__latest-reports .stats__total-cases .country__search .search__list::-webkit-scrollbar-thumb,
+            .main .stats .stats__latest-reports .stats__recovered .country__search .search__list::-webkit-scrollbar-thumb,
+            .main .stats .stats__latest-reports .stats__deaths .country__search .search__list::-webkit-scrollbar-thumb {
+              background: rgba(255, 255, 255, 0.2);
+              border-radius: 10px;
+              border: 1px solid rgba(255, 255, 255, 0.2); }
+            .main .stats .stats__latest-reports .stats__country .country__search .search__list .search__list-ul,
+            .main .stats .stats__latest-reports .stats__total-cases .country__search .search__list .search__list-ul,
+            .main .stats .stats__latest-reports .stats__recovered .country__search .search__list .search__list-ul,
+            .main .stats .stats__latest-reports .stats__deaths .country__search .search__list .search__list-ul {
+              width: 100%; }
+              .main .stats .stats__latest-reports .stats__country .country__search .search__list .search__list-ul .search__list-li,
+              .main .stats .stats__latest-reports .stats__total-cases .country__search .search__list .search__list-ul .search__list-li,
+              .main .stats .stats__latest-reports .stats__recovered .country__search .search__list .search__list-ul .search__list-li,
+              .main .stats .stats__latest-reports .stats__deaths .country__search .search__list .search__list-ul .search__list-li {
+                list-style: none;
+                cursor: pointer;
+                padding: 10px;
+                color: #ffffff;
+                border-left: 1px solid transparent; }
+                .main .stats .stats__latest-reports .stats__country .country__search .search__list .search__list-ul .search__list-li:hover,
+                .main .stats .stats__latest-reports .stats__total-cases .country__search .search__list .search__list-ul .search__list-li:hover,
+                .main .stats .stats__latest-reports .stats__recovered .country__search .search__list .search__list-ul .search__list-li:hover,
+                .main .stats .stats__latest-reports .stats__deaths .country__search .search__list .search__list-ul .search__list-li:hover {
+                  border-left: 1px solid #ffffff; }
+        .main .stats .stats__latest-reports .stats__country .hide,
+        .main .stats .stats__latest-reports .stats__total-cases .hide,
+        .main .stats .stats__latest-reports .stats__recovered .hide,
+        .main .stats .stats__latest-reports .stats__deaths .hide {
+          display: none; }
+        .main .stats .stats__latest-reports .stats__country .fadeIn,
+        .main .stats .stats__latest-reports .stats__total-cases .fadeIn,
+        .main .stats .stats__latest-reports .stats__recovered .fadeIn,
+        .main .stats .stats__latest-reports .stats__deaths .fadeIn {
+          animation: fade 0.5s ease-in-out; }
+
+@keyframes fade {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+        .main .stats .stats__latest-reports .stats__country .total-cases__value,
+        .main .stats .stats__latest-reports .stats__total-cases .total-cases__value,
+        .main .stats .stats__latest-reports .stats__recovered .total-cases__value,
+        .main .stats .stats__latest-reports .stats__deaths .total-cases__value {
+          font-size: 2em;
+          font-weight: bold; }
+        .main .stats .stats__latest-reports .stats__country .recovered__value,
+        .main .stats .stats__latest-reports .stats__total-cases .recovered__value,
+        .main .stats .stats__latest-reports .stats__recovered .recovered__value,
+        .main .stats .stats__latest-reports .stats__deaths .recovered__value {
+          font-size: 2em;
+          font-weight: bold;
+          color: #009688; }
+        .main .stats .stats__latest-reports .stats__country .deaths__value,
+        .main .stats .stats__latest-reports .stats__total-cases .deaths__value,
+        .main .stats .stats__latest-reports .stats__recovered .deaths__value,
+        .main .stats .stats__latest-reports .stats__deaths .deaths__value {
+          font-size: 2em;
+          font-weight: bold;
+          color: #f44336; }
+    .main .stats .chart {
+      width: 80%;
+      height: 70vh;
+      min-height: 500px;
+      margin: 0 auto;
+      padding: 50px 0; }
+
+.footer {
+  max-width: 1200px;
+  height: 60px;
+  margin: 0 auto;
+  background-color: #6a149b; }
+  .footer__container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff; }

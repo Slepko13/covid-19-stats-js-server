@@ -1,0 +1,232 @@
+@font-face {
+    font-family: "Gilroy";
+    src: url(../fonts/Gilroy-Regular.woff) format(woff);
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Gilroy", sans-serif;
+}
+.hide {
+    display: none;
+}
+// .fadeIn {
+//     animation: fade 0.5s ease-in-out;
+// }
+// @keyframes fade {
+//     0% {
+//         opacity: 0;
+//     }
+//     100% {
+//         opacity: 1;
+//     }
+// }
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    background-color: #f3f2f2;
+    .logo {
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+
+        .logo__image {
+            width: 60px;
+        }
+        .logo__text {
+            font-weight: bold;
+            color: #6a149b;
+        }
+    }
+    .nav {
+        .nav__list {
+            display: flex;
+            .nav__item {
+                list-style: none;
+                padding: 20px;
+                .nav__link {
+                    text-decoration: none;
+                    color: #6a149b;
+                }
+            }
+        }
+    }
+}
+.main {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    .stats {
+        width: 100%;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(../img/bg.jpg);
+        background-size: cover;
+
+        .stats__latest-reports {
+            @media screen and(max-width : 768px) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 50px;
+            width: 80%;
+            color: #ffffff;
+            margin: 0 auto;
+            .stats__country,
+            .stats__total-cases,
+            .stats__recovered,
+            .stats__deaths {
+                height: 100px;
+                .total-cases,
+                .recovered,
+                .deaths {
+                    &__title {
+                        font-size: 1.3em;
+                    }
+                    &__new-value {
+                        font-size: 1.3em;
+                    }
+                }
+                .country__name {
+                    font-size: 2.2em;
+                    color: #be64f1;
+                    font-weight: bold;
+                }
+                .country__change {
+                    cursor: pointer;
+                }
+                .country__search {
+                    position: relative;
+                    top: 10px;
+                    .search__box {
+                        position: absolute;
+
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        width: 400px;
+                        height: 30px;
+
+                        background-color: #111111;
+
+                        z-index: 1;
+                        .search__input {
+                            width: 360px;
+                            height: 25px;
+
+                            border: none;
+
+                            background-color: transparent;
+                            color: #ffffff;
+
+                            font-size: 1.1em;
+
+                            padding-left: 15px;
+                        }
+                        .search__close {
+                            width: 20px;
+                            padding-right: 5px;
+                            cursor: pointer;
+                        }
+                    }
+                    .search__list {
+                        display: flex;
+
+                        position: absolute;
+                        top: 30px;
+
+                        width: 400px;
+                        height: 300px;
+
+                        background-color: #111111;
+
+                        opacity: 0.9;
+
+                        overflow-y: scroll;
+                        &::-webkit-scrollbar {
+                            box-shadow: inset 0 0 5px grey;
+                            border-radius: 10px;
+                            background-color: transparent;
+                        }
+                        &::-webkit-scrollbar-thumb {
+                            background: rgba(255, 255, 255, 0.2);
+                            border-radius: 10px;
+                            border: 1px solid rgba(255, 255, 255, 0.2);
+                        }
+                        .search__list-ul {
+                            width: 100%;
+                            .search__list-li {
+                                list-style: none;
+                                cursor: pointer;
+                                padding: 10px;
+                                color: #ffffff;
+                                border-left: 1px solid transparent;
+
+                                &:hover {
+                                    border-left: 1px solid #ffffff;
+                                }
+                            }
+                        }
+                    }
+                }
+                .hide {
+                    display: none;
+                }
+                .fadeIn {
+                    animation: fade 0.5s ease-in-out;
+                }
+                @keyframes fade {
+                    0% {
+                        opacity: 0;
+                    }
+                    100% {
+                        opacity: 1;
+                    }
+                }
+                .total-cases__value {
+                    font-size: 2em;
+                    font-weight: bold;
+                }
+                .recovered__value {
+                    font-size: 2em;
+                    font-weight: bold;
+                    color: #009688;
+                }
+                .deaths__value {
+                    font-size: 2em;
+                    font-weight: bold;
+                    color: #f44336;
+                }
+            }
+        }
+        .chart {
+            width: 80%;
+            height: 70vh;
+            min-height: 500px;
+            margin: 0 auto;
+            padding: 50px 0;
+        }
+    }
+}
+.footer {
+    max-width: 1200px;
+    height: 60px;
+
+    margin: 0 auto;
+    background-color: #6a149b;
+    &__container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+    }
+}
