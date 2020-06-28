@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
     <title>COVID-19 Statistic - JS</title>
 </head>
@@ -27,7 +29,7 @@
             <div class="stats__latest-reports">
                 <div class="stats__country">
                     <div class="country__name">Loading...</div>
-                    <div class="country__change">change</div>
+                    <div class="country__change foo">change</div>
                     <div class="country__search hide">
                         <div class="search__box">
                             <input type="text" class="search__input" placeholder="Search country...">
@@ -63,12 +65,11 @@
 
         </div>
     </main>
-    <footer class="footer">
-        <div class="footer__container">
-            <div class="footer__copyright">Copyright © 2020</div>
+    <footer class="footer ">
+        <div class="footer__container ">
+            <div id="foo hoo" class="footer__copyright foo">Copyright © 2020</div>
         </div>
     </footer>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
     <script src="./js/countries.js"></script>

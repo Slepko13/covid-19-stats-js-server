@@ -206,8 +206,7 @@ let country_list_no_db = [
     { name: 'Yemen', code: 'YE' },
     { name: 'China', code: 'CN' }
 ];
-// console.log(country_list[0]);
-//? Fill data base with 
+//? DB was filled with this function
 // async function fillDataBase() {
 //     await country_list.map(item => {
 //         fetch('http://localhost:4000/add', {
@@ -222,40 +221,58 @@ let country_list_no_db = [
 // fillDataBase();
 
 //! Select search country elements
+//* JS version
+// const search_country_element = document.querySelector('.country__search');
+// const search_list_element = document.querySelector('.search__list');
+// const change_country_btn = document.querySelector('.country__change');
+// const close_list_btn = document.querySelector('.search__close');
+// const input = document.querySelector('.search__input');
 
-const search_country_element = document.querySelector('.country__search');
-const search_list_element = document.querySelector('.search__list');
-const change_country_btn = document.querySelector('.country__change');
-const close_list_btn = document.querySelector('.search__close');
-const input = document.querySelector('.search__input');
+//* JQuery version 
+const search_country_element = $('.country__search');
+const search_list_element = $('.search__list');
+const change_country_btn = $('.country__change');
+const close_list_btn = $('.search__close');
+const input = $('.search__input');
 
 //!Create the country list
 let country_list;//? Delete it when database is not available
 let num_of_ul_lists = 3;
 async function createCountryList() {
     //? Delete it when database is not available start
-    let fet = await fetch('http://localhost:4000/');//* Getting "country_list" from MongoDB cloud
-    let res = await fet.json();
-    country_list = res;
+    let fetchRes = await fetch('http://localhost:4000/');//* Getting "country_list" from MongoDB cloud
+    let response = await fetchRes.json();
+    country_list = response;
     country_list.forEach(country => {
         if (country.code == country_code) {
-            user_country = country.name
+            user_country = "Ukraine"
         }
     })
-    fetchData(user_country);
-    //?  end
+    fetchData(user_country);//*from main.js
+    //?  end  ///////////////////////////////////////
     const num_countries = country_list.length;
     let i = 0;
     let ul_list_id;
     country_list.forEach((country, index) => {
         if (index % (Math.ceil(num_countries / num_of_ul_lists) + 2) == 0) {
             ul_list_id = `list-${i}`;
-            search_list_element.innerHTML += `<ul class="search__list-ul" id = '${ul_list_id}'></ul></ul>`;
+            //*JS version
+            // search_list_element.innerHTML += `<ul class="search__list-ul" id = '${ul_list_id}'></ul></ul>`;
+            //* JQuery version
+            search_list_element.html((i, origText) => {
+                return `${origText}<ul class="search__list-ul" id = '${ul_list_id}'></ul></ul>`
+            });
+
             i++;
         }
-        document.querySelector(`#${ul_list_id}`).innerHTML += `
-        <li onClick="fetchData('${country.name}')" id="${country.name}" class="search__list-li">${country.name}</li>
-        `
+        //*JS version
+        // document.querySelector(`#${ul_list_id}`).innerHTML += `
+        // <li onClick="fetchData('${country.name}')" id="${country.name}" class="search__list-li">${country.name}</li>`;
+        //* JQuery version
+        $(`#${ul_list_id}`).html((i, origText) => {
+            return `${origText}<li onClick="fetchData('${country.name}')" id="${country.name}" class="search__list-li">${country.name}</li>`
+        });
+
     })
 }
 createCountryList();
@@ -263,32 +280,55 @@ createCountryList();
 
 
 //! Toggle search list
-
-change_country_btn.addEventListener('click', () => {
-    input.value = "";
+//*JS version
+// change_country_btn.addEventListener('click', () => {
+//     input.value = "";
+//     resetCountryList();
+//     search_country_element.classList.toggle('hide');
+//     search_country_element.classList.add('fadeIn');
+// });
+// close_list_btn.addEventListener('click', () => {
+//     search_country_element.classList.toggle('hide');
+// });
+// search_list_element.addEventListener('click', () => {
+//     search_country_element.classList.toggle('hide');
+// });
+//* JQuery version
+change_country_btn.on('click', () => {
+    input.val('');
     resetCountryList();
-    search_country_element.classList.toggle('hide');
-    search_country_element.classList.add('fadeIn');
-
+    search_country_element.toggleClass('hide');
+    search_country_element.addClass('fadeIn');
 });
-close_list_btn.addEventListener('click', () => {
-    search_country_element.classList.toggle('hide');
+close_list_btn.on('click', () => {
+    search_country_element.toggleClass('hide');
 });
-search_list_element.addEventListener('click', () => {
-    search_country_element.classList.toggle('hide');
-});
+search_list_element.on('click', () => {
+    search_country_element.toggleClass('hide');
+})
 
 //! Country filter
+//* JS version
 
-input.addEventListener('input', () => {
-    let value = input.value.toUpperCase();
+// input.addEventListener('input', () => {
+//     let value = input.value.toUpperCase();
+//     country_list.forEach(country => {
+//         if (country.name.toUpperCase().startsWith(value)) {
+//             document.getElementById(country.name).classList.remove('hide');
+//         } else {
+//             document.getElementById(country.name).classList.add('hide');
+//         }
+//     })
+// })
+//* JQuery version
+
+input.on('input', () => {
+    let value = input.val().toUpperCase();
     country_list.forEach(country => {
         if (country.name.toUpperCase().startsWith(value)) {
-            document.getElementById(country.name).classList.remove('hide');
-
+            $(`[id='${country.name}']`).removeClass('hide');
         } else {
-            document.getElementById(country.name).classList.add('hide');
-
+            $(`[id='${country.name}']`).addClass('hide');
         }
     })
 })
@@ -297,7 +337,10 @@ input.addEventListener('input', () => {
 
 function resetCountryList() {
     country_list.forEach(country => {
-        document.getElementById(country.name).classList.remove('hide');
-
+        //* JS version
+        // document.getElementById(country.name).classList.remove('hide');
+        //* JQuery version
+        $(`[id='${country.name}']`).removeClass('hide');
     })
 }
+;
